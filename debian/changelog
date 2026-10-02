@@ -1,3 +1,15 @@
+vyatta-interfaces (2.10) trixie; urgency=medium
+
+  * libvyatta-interface-perl depends on libvyatta-ioctl-perl: Vyatta::Misc
+    uses Vyatta::ioctl (provided by vyatta-system).
+  * Kernel forwarding satisfies vplane-config and the switch model's QoS
+    dependency; the DHCP client is recommended (1.0 interfaces are static).
+  * Split the portmonitor augment out of vyatta-interfaces-switch-v1 into
+    vyatta-interfaces-switch-portmonitor-v1(-yang): portmonitor imports the
+    DPDK firewall model.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Fri, 02 Oct 2026 08:46:39 -0700
+
 vyatta-interfaces (2.9) trixie; urgency=medium
 
   * Port to Debian 13 (trixie): debhelper-compat 13, Standards-Version 4.7.2, Rules-Requires-Root, NuDanOS Vcs.
