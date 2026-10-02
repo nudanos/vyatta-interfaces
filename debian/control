@@ -41,8 +41,7 @@ Depends: bmon,
  libvyatta-interface-perl,
  libvyatta-misc-perl,
  libvyatta-vifconfig-perl,
- vplane-config,
- vyatta-service-dhcp-client,
+ vplane-config | vyatta-kernel-forwarding,
  vyatta-cfg (>= 0.105.3),
  vyatta-op (>= 1.0),
  vyatta-system (>= 1.6.1),
@@ -52,6 +51,7 @@ Depends: bmon,
  ${misc:Depends},
  ${perl:Depends},
  ${shlibs:Depends}
+Recommends: vyatta-service-dhcp-client
 Description: Core interface command helper scripts
  Core set of scripts to handle configuration of interfaces
 
@@ -60,7 +60,7 @@ Provides: vyatta-tunnel-deferred.pl
 Architecture: all
 Depends: ebtables,
  vyatta-interfaces-base,
- vplane-config,
+ vplane-config | vyatta-kernel-forwarding,
  vyatta-cfg (>= 1.17),
  vyatta-op (>= 1.0),
  vyatta-system (>= 1.6.1),
