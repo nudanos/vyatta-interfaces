@@ -264,7 +264,7 @@ Depends: libvyatta-bridge-perl,
  vyatta-update-vifs,
  vyatta-platform-util,
  vyatta-service-bridge (>= 2.4),
- vyatta-policy-qos-vci,
+ vyatta-policy-qos-vci | vyatta-kernel-forwarding,
  plat-util-hw-router-intf-cap,
  ${misc:Depends}, ${yang:Depends}
 Description: vyatta-interfaces-switch-v1 module
