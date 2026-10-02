@@ -3,6 +3,10 @@
 # This debian/rules uses debhelper.
 #
 
+# notify-intf is built GOPATH-style (notify-intf/Makefile.am); Go 1.26
+# defaults to module mode.
+export GO111MODULE := off
+
 CFLAGS += -Wall -Wextra -Werror
 
 override_dh_auto_configure:
