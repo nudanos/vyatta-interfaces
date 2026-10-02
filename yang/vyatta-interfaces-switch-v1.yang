@@ -23,12 +23,6 @@ module vyatta-interfaces-switch-v1 {
 	import vyatta-interfaces-bridge-state-v1 {
 		prefix br-state;
 	}
-	import vyatta-services-v1 {
-		prefix service;
-	}
-	import vyatta-service-portmonitor-v1 {
-		prefix pm;
-	}
 
 	organization "AT&T Inc.";
 	contact
@@ -79,6 +73,14 @@ module vyatta-interfaces-switch-v1 {
 		 switches.  Each port that is part of a switch may have a set of
 		 allowed VLANs, a PVID, and a set of VLANs to untag on egress
 		 from a port.";
+
+	revision 2026-10-01 {
+		description "Move the portmonitor augment to
+			     vyatta-interfaces-switch-portmonitor-v1, so this
+			     module no longer imports portmonitor (and through
+			     it the firewall model, which needs the DPDK
+			     dataplane).";
+	}
 
 	revision 2021-04-21 {
 		description "Add configd:must for more efficient VIF validation";
@@ -514,10 +516,6 @@ module vyatta-interfaces-switch-v1 {
 	}
 
 	augment /if:interfaces {
-		configd:end "vyatta-switch --action=set-default-state-and-update";
-	}
-
-	augment /service:service/pm:portmonitor {
 		configd:end "vyatta-switch --action=set-default-state-and-update";
 	}
 }

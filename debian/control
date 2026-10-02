@@ -257,6 +257,12 @@ Depends: ${misc:Depends}, ${yang:Depends}
 Description: vyatta-interfaces-policy-v1 module
  The YANG module for vyatta-interfaces-policy-v1
 
+Package: vyatta-interfaces-switch-portmonitor-v1-yang
+Architecture: all
+Depends: vyatta-interfaces-switch-v1-yang, ${misc:Depends}, ${yang:Depends}
+Description: vyatta-interfaces-switch-portmonitor-v1 module
+ Switch port handling of portmonitor changes.
+
 Package: vyatta-interfaces-switch-v1-yang
 Architecture: all
 Depends: libvyatta-bridge-perl,

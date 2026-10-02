@@ -1,0 +1,35 @@
+module vyatta-interfaces-switch-portmonitor-v1 {
+	namespace "urn:vyatta.com:mgmt:vyatta-interfaces-switch-portmonitor:1";
+	prefix vyatta-interfaces-switch-portmonitor-v1;
+
+	import configd-v1 {
+		prefix configd;
+	}
+	import vyatta-services-v1 {
+		prefix service;
+	}
+	import vyatta-service-portmonitor-v1 {
+		prefix pm;
+	}
+
+	organization "NuDanOS";
+	contact "NuDanOS Maintainers <jon@fernandez.tech>";
+	description
+		"Switch port handling of portmonitor changes, split out of
+		 vyatta-interfaces-switch-v1 (AT&T, 2017-2021) so that module
+		 does not depend on portmonitor and the firewall model.
+
+		 Copyright (c) 2017-2021, AT&T Intellectual Property.
+		 All rights reserved.
+
+		 SPDX-License-Identifier: GPL-2.0-only";
+
+	revision 2026-10-01 {
+		description "Initial revision: the portmonitor augment of
+			     vyatta-interfaces-switch-v1.";
+	}
+
+	augment /service:service/pm:portmonitor {
+		configd:end "vyatta-switch --action=set-default-state-and-update";
+	}
+}
