@@ -1,12 +1,9 @@
 Source: vyatta-interfaces
-Section: contrib/net
+Section: net
 Priority: optional
-Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
-Build-Depends:
+Maintainer: NuDanOS Maintainers <jon@fernandez.tech>
+Build-Depends: debhelper-compat (= 13),
  cpio,
- debhelper (>= 9),
- debhelper (>= 9.20160403~) | dh-autoreconf,
- debhelper (>= 9.20160709) | dh-systemd (>= 1.5),
  dh-yang,
  dh-python,
  golang-go,
@@ -21,8 +18,11 @@ Build-Depends:
  libtest-mockobject-perl,
  libtest-output-perl,
  libtest-warn-perl,
- python3,
-Standards-Version: 3.9.8
+ python3
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/nudanos/vyatta-interfaces.git
+Vcs-Browser: https://github.com/nudanos/vyatta-interfaces
 
 Package: vyatta-interfaces-base
 Provides: vyatta-intf-create,
@@ -74,7 +74,7 @@ Description: Interface command helper scripts
 Package: vyatta-interfaces-routing-instance
 Provides: vrf-bind-interface
 Architecture: all
-Depends:
+Depends: 
  chvrf,
  libvyatta-config-perl,
  libvyatta-interface-perl,
@@ -88,7 +88,7 @@ Description: routing-instance related interface commands and
 
 Package: libvyatta-interface-perl
 Architecture: all
-Section: contrib/perl
+Section: perl
 Provides: libvyatta-dscp-perl,
  libvyatta-interfacestats-perl,
  libvyatta-misc-perl,
@@ -97,7 +97,7 @@ Provides: libvyatta-dscp-perl,
  libvyatta-vifconfig-perl
 Replaces: vyatta-interfaces (<< 0.7)
 Breaks: vyatta-interfaces (<< 0.7), libvyatta-vrfmanager-perl (<= 1.9)
-Depends:
+Depends: 
  libconfig-tiny-perl,
  libfile-slurp-perl,
  libio-interface-perl,
@@ -112,8 +112,8 @@ Description: Interface related perl modules
 
 Package: libvyatta-vrfinterface-perl
 Architecture: all
-Section: contrib/perl
-Depends:
+Section: perl
+Depends: 
  libvyatta-interface-perl,
  libvyatta-vrfmanager-perl,
  ${misc:Depends},
@@ -212,14 +212,14 @@ Description: Vyatta PPPoE interface definition
 
 Package: vyatta-interfaces-system-support
 Architecture: all
-Depends:
+Depends: 
  ${misc:Depends}
 Description: Support package for system interfaces
  Common support files for administrative interfaces
 
 Package: vyatta-interfaces-system-groups-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-interfaces-base,
  vyatta-ipv6-rtradv-groups-v1-yang,
  vyatta-interfaces-system-support,
@@ -229,7 +229,7 @@ Description: vyatta-interfaces-system-groups-v1 module
 
 Package: vyatta-interfaces-system-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-interfaces-system-groups-v1-yang,
  ${misc:Depends}, ${yang:Depends}
 Description: vyatta-interfaces-system-v1 module
@@ -237,7 +237,7 @@ Description: vyatta-interfaces-system-v1 module
 
 Package: vyatta-interfaces-system-bridge-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-interfaces-system-v1-yang,
  vyatta-service-bridge,
  ${misc:Depends}, ${yang:Depends}
@@ -296,7 +296,7 @@ Description: Utility for adding and removing chap entries to the
 
 Package: vyatta-interfaces-vfp-v1-yang
 Architecture: all
-Depends:
+Depends: 
  ${misc:Depends},
  ${yang:Depends}
 Description: Yang module vyatta-interfaces-vfp-v1
@@ -304,7 +304,7 @@ Description: Yang module vyatta-interfaces-vfp-v1
 
 Package: vyatta-interfaces-vfp-unnumbered-v1-yang
 Architecture: all
-Depends:
+Depends: 
  ${misc:Depends},
  ${yang:Depends}
 Description: Yang module vyatta-interfaces-vfp-unnumbered-v1
@@ -370,7 +370,7 @@ Description: vyatta-op-show-switch-spanning-tree-v1 module
 
 Package: vyatta-interfaces-switch-policy-v1-yang
 Architecture: all
-Depends:
+Depends: 
  ${misc:Depends},
  ${yang:Depends}
 Description: Yang module vyatta-interfaces-switch-policy-v1
@@ -378,7 +378,7 @@ Description: Yang module vyatta-interfaces-switch-policy-v1
 
 Package: vyatta-interfaces-switch-vif-policy-v1-yang
 Architecture: all
-Depends:
+Depends: 
  ${misc:Depends},
  ${yang:Depends}
 Description: Yang module vyatta-interfaces-switch-vif-policy-v1
@@ -386,7 +386,7 @@ Description: Yang module vyatta-interfaces-switch-vif-policy-v1
 
 Package: vyatta-interfaces-switch-vif-sflow-v1-yang
 Architecture: all
-Section: contrib/admin
+Section: admin
 Depends: vyatta-service-sflow-v1-yang, ${misc:Depends},
         ${yang:Depends}
 Description: vyatta-interfaces-switch-vif-sflow-v1 module
@@ -394,7 +394,7 @@ Description: vyatta-interfaces-switch-vif-sflow-v1 module
 
 Package: vyatta-interfaces-switch-vif-tcp-mss-v1-yang
 Architecture: all
-Section: contrib/admin
+Section: admin
 Depends: ${misc:Depends}, ${yang:Depends}
 Description: vyatta-interfaces-switch-vif-tcp-mss-v1 module
  The YANG module for enabling TCP MSS config on switch VLAN interfaces

@@ -19,4 +19,4 @@ opt/vyatta/share/vyatta-op/templates/monitor/interfaces/tunnel
 opt/vyatta/share/vyatta-op/templates/monitor/interfaces/virtual-feature-point
 opt/vyatta/share/vyatta-op/templates/show/vxlan
 scripts/netplug/spathintf etc/netplug/linkup.d
-platform/vyatta-interfaces-tunnel.platform /lib/vyatta-platform/platforms
+platform/vyatta-interfaces-tunnel.platform /usr/lib/vyatta-platform/platforms

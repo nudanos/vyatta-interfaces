@@ -4,5 +4,5 @@ opt/vyatta/sbin/vyatta-switch-master
 opt/vyatta/sbin/vyatta-switch-state
 opt/vyatta/sbin/vyatta-switchport
 opt/vyatta/sbin/vyatta-platform-default
-systemd/vyatta-platform-default.service lib/systemd/system
+systemd/vyatta-platform-default.service usr/lib/systemd/system
 
