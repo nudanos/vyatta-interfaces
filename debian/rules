@@ -21,3 +21,6 @@ override_dh_install:
 
 %:
 	dh $@ --with autoreconf,yang,python3
+
+# dwz cannot process Go DWARF (notify-intf)
+override_dh_dwz:
